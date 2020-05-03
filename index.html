@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+             <meta charset ="UTF-8">
+             <title >WebMap 101</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet"href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
+        <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="leaflet.ajax.js"></script>
+            <style>
+                 #header
+                      {
+                         height:75px;
+                         background-color:orange;
+                     }
+                 #mapdiv
+                      {
+                         height:650px;
+                          width:850px;
+                        background-color:salmon;
+            }
+                #side_panel
+                      {
+                         height:600px;
+                         background-color:beige;
+                    }
+             
+               
+                #footer
+                   {
+                    height:100px;
+                    background-color:orange;
+                   }
+            </style>
+  </head>
+    <body>
+        
+    <div id ="header"class ="col-md-12">
+                     <h1 class ="text-center">Ranchi city </h1>
+            
+    </div>
+        
+    <div id ="side_panel" class ="col-md-2">
+                     <h1 class ="text-center">Universities</h1>
+            <button id="zoomToCentralUniversityofJharkhand" class="form-control btn-primary">CentralUniversityofJharkhand </button>
+            <button id="zoomToRanchiuniversity" class="form-control btn-primary">Ranchi University </button>
+             <button id="zoomToAmityuniversity" class="form-control btn-primary">Amity University </button>
+             <button id="zoomToBirsaAgricultureuniversity" class="form-control btn-primary">Birsa Agriculture University </button>
+            <button id="zoomToICFAIuniversity" class="form-control btn-primary">ICFAI University </button>
+            <button id="zoomToJharkhandraiuniversity" class="form-control btn-primary">Jharkhand Rai University </button>
+            <button id="zoomToJharkhandrakshashaktiuniversity" class="form-control btn-primary">Jharkhand Raksha Shakti Univ. </button>
+            <button id="zoomToSainathuniversity" class="form-control btn-primary">Sai Nath University </button>
+        <h1 class ="text-center">Colleges </h1>
+         <button id="zoomToGossnerCollege" class="form-control btn-primary">Gossner College </button>
+            <button id="zoomToRanchicollege" class="form-control btn-primary">Ranchi college </button>
+             <button id="zoomToStXavierCollege" class="form-control btn-primary">St. Xavier's College </button>
+             <button id="zoomToRanchiwomencollege" class="form-control btn-primary">Ranchi Women's College</button>
+        <button id="zoomTomarwadiboyscollege" class="form-control btn-primary">Marwadi Boy's college </button>
+        <button id="zoomTomarwadigirlscollege" class="form-control btn-primary">Marwadi Girl's college</button>
+         <button id="zoomToiimranchi" class="form-control btn-primary">IIM Ranchi</button>
+        
+        </div>
+        
+    <div id ="mapdiv" class ="col-md-8"></div>
+    <div id ="side_panel" class ="col-md-2">
+         <h1 class ="text-center">Engineering Colleges </h1>
+         <button id="zoomTobitmesra" class="form-control btn-primary">BIT,Mesra </button>
+            <button id="zoomTobitextensionlalpur" class="form-control btn-primary">BIT Ext. Lalpur </button>
+             <button id="zoomTocittatisiwai" class="form-control btn-primary">CIT,Tatisiwai </button>
+            
+        <h1 class ="text-center">Law Colleges </h1>
+         <button id="zoomToChottanagpurLawCollege" class="form-control btn-primary">Chottanagpur Law College </button>
+            
+       
+        <h1 class ="text-center">Medical Colleges </h1>
+         <button id="zoomToRiims" class="form-control btn-primary">RIIMS</button>
+           
+            
+             
+            
+    </div>
+        <div id ="footer"class ="col-md-12">
+    <h4 id ="map_coords" class="text-center">Latitude:23.3441  Longitude:85.3096  Zoom Level:11</h4>
+    <h4 class="text-center" >&copy;2018 <a href="https://www.linkedin.com/in/shashi-kant-kasera-msc-gis-be-it-a74a6a15a">Shashi Kant Kasera </a></h4>
+        </div>
+        <script>
+            var mymap=L.map('mapdiv')
+            mymap.setView([23.3441,85.3096],11);
+           
+            var backgroundLayer=L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+            mymap.addLayer(backgroundLayer);
+           
+           var CentralUniversityofJharkhandMarker=L.marker([23.25845,85.35135]).addTo(mymap).bindPopup("<h3 class='text center'> CentralUniversityofJharkhand</h3><img src='a1.jpg'width='200px'><a href='http://cuj.ac.in/' target='blank'>CentralUniversityOfJharkhand</a>");
+            $("#zoomToCentralUniversityofJharkhand").click(function(){mymap.setView([23.25845,85.35135],17);});
+            
+          var RanchiuniversityMarker=L.marker([23.387176,85.326545]).addTo(mymap).bindPopup("<h3 class='text center'> Ranchiuniversity</h3><img src='a2.jpg'width='200px'><a href='http://www.ranchiuniversity.ac.in/' target='blank'>RanchiUniversity</a>");
+            $("#zoomToRanchiuniversity").click(function(){mymap.setView([23.387176,85.326545],17);});
+            
+           var AmityuniversityMarker=L.marker([23.3510,85.3253]).addTo(mymap).bindPopup("<h3 class='text center'> Amityuniversity</h3><img src='a3.jpg'width='200px'><a href='http://www.amity.edu/ranchi/' target='blank'>AmityUniversity</a>");
+            $("#zoomToAmityuniversity").click(function(){mymap.setView([23.3510,85.3253],17);});
+            
+          var BirsaAgricultureuniversityMarker=L.marker([23.4167,85.3168]).addTo(mymap).bindPopup("<h3 class='text center'> BirsaAgricultureuniversity</h3><img src='a4.jpg'width='200px'><a href='http://www.bauranchi.org/' target='blank'>BirsaAgricultureUniversity</a>");
+           $("#zoomToBirsaAgricultureuniversity").click(function(){mymap.setView([23.4167,85.3168],17);});
+            
+         var ICFAIuniversityMarker=L.marker([23.3503,85.2999]).addTo(mymap).bindPopup("<h3 class='text center'> ICFAIuniversity</h3><img src='a5.jpg'width='200px'><a href='http://www.iujharkhand.edu.in/' target='blank'>IcfaiUniversity</a>");
+            $("#zoomToICFAIuniversity").click(function(){mymap.setView([23.3503,85.2999],17);});
+            
+          var JharkhandraiuniversityMarker=L.marker([23.4052,85.2512]).addTo(mymap).bindPopup("<h3 class='text center'> Jharkhandraiuniversity</h3><img src='a6.jpg'width='200px'><a href='http://www.jru.edu.in/' target='blank'>JharkhandRaiUniversity</a>");
+           $("#zoomToJharkhandraiuniversity").click(function(){mymap.setView([23.4052,85.2512],17);});
+            
+          var JharkhandrakshashaktiuniversityMarker=L.marker([23.3840,85.3181]).addTo(mymap).bindPopup("<h3 class='text center'> Jharkhandrakshashaktiuniversity</h3><img src='a7.jpg'width='200px'><a href='http://www.jrsu.in/' target='blank'>JharkhandShaktiUniversity</a>");
+             $("#zoomToJharkhandrakshashaktiuniversity").click(function(){mymap.setView([23.3840,85.3181],17);});
+            
+          var SainatuniversityMarker=L.marker([23.4885,85.4079]).addTo(mymap).bindPopup("<h3 class='text center'> Sainatuniversity</h3><img src='a8.jpg'width='200px'><a href='http://www.sainathuniversity.com/' target='blank'>SaiNathUniversity</a>");
+           $("#zoomToSainathuniversity").click(function(){mymap.setView([23.4885,85.4079],17);});
+            
+           var geojsonLayer=new L.GeoJSON.AJAX('attractions.geojson',
+                           {pointToLayer:function(feature,latlng)
+                             { 
+                                var str ="<h4>"+features.properties.name+"</h4><hr>";   
+                                str += "<a href ='"+features.properties.web+"' target='blank'>"; 
+                                str +=  "<img src='img/"+features.properties.image+"' width='200px'>"; 
+                                str += "</a>";                                                 
+                                return L.marker(latlng).bindpopup(str);
+                              }
+                           }
+                              );
+           geojsonLayer.addTo(mymap);
+            
+            mymap.on ('mousemove',function(e)
+                        {var str ="Latitude :"+e.latlng.lat.toFixed(5)+
+                                " Longitude :"+e.latlng.lng.toFixed(5)+
+                                " Zoom Level :" + mymap.getZoom();
+                         $("#map_coords").html(str);
+                        }
+                     );
+           
+            </script>
+    </body>  
+</html>
+

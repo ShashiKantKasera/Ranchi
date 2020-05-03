@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": 
+  [
+   { "type": "Feature", "properties": 
+       { "id": 1, "name": "CentralUniversityofJharkhand", 
+                  "image": "a1.jpg",
+                  "web": "https://en.wikipedia.org/wiki/Central_University_of_Jharkhand" }, 
+                  "geometry": { "type": "Point",
+                                "coordinates": [ 23.25845, 85.35135] }
+        } 
+    },
+
+  ]
+}
